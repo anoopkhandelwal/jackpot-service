@@ -8,7 +8,7 @@ import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * In-memory implementation of JackpotRepository using Reactive Streams.
+ * In-memory implementation of JackpotRepository.
  * Uses a ConcurrentHashMap to simulate a database table for jackpots.
  * Operations are wrapped in Mono.fromCallable to expose them as reactive streams,
  * acknowledging that the underlying HashMap operations are blocking.
@@ -20,7 +20,6 @@ public class InMemJackpotRepository implements JackpotRepository {
 
     /**
      * Saves a jackpot to the in-memory map. If a jackpot with the same ID already exists, it will be updated.
-     * Wrapped in Mono.fromCallable to represent a potentially blocking operation reactively.
      * @param jackpot The jackpot to save.
      * @return A Mono emitting the saved jackpot.
      */
@@ -35,7 +34,6 @@ public class InMemJackpotRepository implements JackpotRepository {
 
     /**
      * Finds a jackpot by its ID from the in-memory map.
-     * Wrapped in Mono.fromCallable to represent a potentially blocking operation reactively.
      * @param jackpotId The ID of the jackpot to find.
      * @return A Mono emitting the jackpot if found, or empty otherwise.
      */
@@ -47,7 +45,6 @@ public class InMemJackpotRepository implements JackpotRepository {
 
     /**
      * Updates an existing jackpot in the in-memory map.
-     * Wrapped in Mono.fromCallable to represent a potentially blocking operation reactively.
      * Uses a loop with `replace` for a basic form of optimistic locking/retries for concurrent updates,
      * which is crucial since `synchronized` is removed.
      * @param jackpot The jackpot with updated fields.

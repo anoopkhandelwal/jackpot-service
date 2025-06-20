@@ -9,7 +9,7 @@ import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * In-memory implementation of BetRepository using Reactive Streams.
+ * In-memory implementation of BetRepository.
  * Uses a ConcurrentHashMap to simulate a database table for bets.
  * Operations are wrapped in Mono.fromCallable to expose them as reactive streams,
  * acknowledging that the underlying HashMap operations are blocking.
@@ -21,7 +21,6 @@ public class InMemBetRepository implements BetRepository {
 
     /**
      * Saves a bet to the in-memory map. If a bet with the same ID already exists, it will be updated.
-     * Wrapped in Mono.fromCallable to represent a potentially blocking operation reactively.
      * @param bet The bet to save.
      * @return A Mono emitting the saved bet.
      */
@@ -36,7 +35,6 @@ public class InMemBetRepository implements BetRepository {
 
     /**
      * Finds a bet by its ID from the in-memory map.
-     * Wrapped in Mono.fromCallable to represent a potentially blocking operation reactively.
      * @param betId The ID of the bet to find.
      * @return A Mono emitting the bet if found, or empty otherwise.
      */
@@ -48,7 +46,6 @@ public class InMemBetRepository implements BetRepository {
 
     /**
      * Finds all bets from the in-memory map.
-     * Wrapped in Flux.fromIterable and Mono.fromCallable to represent a potentially blocking operation reactively.
      * @return A Flux emitting all bets.
      */
     @Override

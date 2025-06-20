@@ -10,21 +10,21 @@ import reactor.core.publisher.Mono;
  */
 public interface JackpotRepository {
     /**
-     * Saves a jackpot reactive way.
+     * Saves a jackpot.
      * @param jackpot The jackpot to save.
      * @return A Mono emitting the saved jackpot.
      */
     Mono<Jackpot> save(Jackpot jackpot);
 
     /**
-     * Finds a jackpot by its ID reactive way.
+     * Finds a jackpot by its ID.
      * @param jackpotId The ID of the jackpot to find.
      * @return A Mono emitting the jackpot if found, or empty otherwise.
      */
     Mono<Jackpot> findById(String jackpotId);
 
     /**
-     * Updates an existing jackpot reactive way.
+     * Updates an existing jackpot.
      * @param jackpot The jackpot with updated fields.
      * @return A Mono emitting the updated jackpot, or an error if not found.
      */

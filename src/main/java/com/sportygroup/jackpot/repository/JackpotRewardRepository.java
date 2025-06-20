@@ -11,21 +11,21 @@ import reactor.core.publisher.Flux;
  */
 public interface JackpotRewardRepository {
     /**
-     * Saves a jackpot reward record reactively.
+     * Saves a jackpot reward record.
      * @param reward The reward record to save.
      * @return A Mono emitting the saved reward record.
      */
     Mono<JackpotReward> save(JackpotReward reward);
 
     /**
-     * Finds all rewards for a given bet ID reactively.
+     * Finds all rewards for a given bet ID.
      * @param betId The ID of the bet.
      * @return A Flux emitting matching reward records.
      */
     Flux<JackpotReward> findByBetId(String betId);
 
     /**
-     * Finds a reward by its Bet ID and Jackpot ID reactively.
+     * Finds a reward by its Bet ID and Jackpot ID.
      * @param betId The ID of the bet.
      * @param jackpotId The ID of the jackpot.
      * @return A Mono emitting the reward if found, or empty otherwise.

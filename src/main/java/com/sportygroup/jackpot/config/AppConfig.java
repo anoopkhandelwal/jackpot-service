@@ -29,8 +29,7 @@ import java.util.Map;
 
 /**
  * Spring configuration class for defining application beans.
- * This centralizes the instantiation and wiring of dependencies, adhering to DIP.
- * All repository and service beans are now configured to work with reactive types.
+ * This centralizes the instantiation and wiring of dependencies.
  */
 @Configuration
 public class AppConfig {
@@ -123,7 +122,7 @@ public class AppConfig {
     /**
      * Collects all ContributionStrategy beans into a Map.
      * Spring automatically injects all beans of type `ContributionStrategy` into this map,
-     * using their bean names as keys. This is crucial for dynamic strategy selection (DIP).
+     * using their bean names as keys.
      * @return A map of contribution strategies.
      */
     @Bean
@@ -161,7 +160,7 @@ public class AppConfig {
     /**
      * Collects all RewardStrategy beans into a Map.
      * Spring automatically injects all beans of type `RewardStrategy` into this map,
-     * using their bean names as keys. This is crucial for dynamic strategy selection (DIP).
+     * using their bean names as keys.
      * @return A map of reward strategies.
      */
     @Bean

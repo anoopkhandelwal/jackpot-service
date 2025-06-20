@@ -71,7 +71,7 @@ public class JackpotInitializer implements ApplicationRunner {
                     );
                     jackpotConfigLoader.addJackpotConfig("JP-2", config);
                     return new Jackpot("JP-2", BigDecimal.valueOf(1000.00), BigDecimal.valueOf(1000.00), config, LocalDateTime.now());
-                }).flatMap(jackpotRepository::save) // Save the jackpot using the reactive repository
+                }).flatMap(jackpotRepository::save)
                 .doOnSuccess(j -> System.out.println("Jackpot JP-2 initialized: " + j.getJackpotId()))
                 .then();
 

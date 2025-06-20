@@ -55,11 +55,11 @@ The service provides two main functionalities:
 
 * **Maven** (for dependency management and build automation)
 
-* **Lombok** (to reduce boilerplate code for POJOs)
+* **Lombok** (to reduce boilerplate code for POJOs) [ TODO ]
 
 * **Jackson** (for JSON serialization/deserialization)
 
-* **JUnit 5 & Mockito** (for testing)
+* **JUnit 5 & Mockito** (for testing) [ TODO ]
 
 ## How to Run the Application
 
@@ -90,13 +90,11 @@ The service provides two main functionalities:
     java -jar target/jackpot-service-0.0.1-SNAPSHOT.jar
     ```
 
-    The application will start on `http://localhost:8080`.
+    The application will start on `http://localhost:8080`
 
 ## How to Use the API
 
 API tools like cURL, Postman to interact with the API endpoints.
-
-The mock Kafka consumer will periodically generate and process bets automatically (every 5 seconds) to demonstrate the contribution logic.
 
 ### 1. Publish a Bet (POST `/api/bets`)
 
@@ -133,13 +131,13 @@ This endpoint simulates publishing a bet. The `MockKafkaProducerService` will lo
       }'
     ```
 
-### 2. Evaluate Bet for Jackpot Reward (POST `/api/jackpots/evaluate-reward`)
+### 2. Evaluate Bet for Jackpot Reward (GET `/api/jackpots/evaluate-reward?betId="<replace-with-actual-bet-id>"`)
 
 This endpoint checks if a specific bet wins a jackpot reward based on the jackpot's configured reward strategy. If the bet wins, the jackpot is reset.
 
-* **URL:** `http://localhost:8080/api/jackpots/evaluate-reward`
+* **URL:** `http://localhost:8080/api/jackpots/evaluate-reward?betId="<replace-with-actual-bet-id>"`
 
-* **Method:** `POST`
+* **Method:** `GET`
 
 * **Headers:** `Content-Type: application/json`
 
@@ -152,7 +150,7 @@ This endpoint checks if a specific bet wins a jackpot reward based on the jackpo
 * **Example cURL Command:**
 
     ```bash
-    curl -X POST \
+    curl -X GET \
       http://localhost:8080/api/jackpots/evaluate-reward?betId="<replace-with-actual-bet-id>" \
       -H 'Content-Type: application/json'
     ```
@@ -172,7 +170,7 @@ This endpoint checks if a specific bet wins a jackpot reward based on the jackpo
 
 3.  **Structured Logging:**
 
-    * Enhance logging using sl4j for debugging complex asynchronous flows.
+    * Enhance logging using slf4j for debugging complex asynchronous flows.
 
 4.  **Unit Tests (`*ServiceTest.java`):** 
 

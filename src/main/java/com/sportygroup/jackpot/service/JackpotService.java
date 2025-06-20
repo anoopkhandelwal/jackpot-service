@@ -21,8 +21,8 @@ import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * Service responsible for managing jackpot contributions and rewards in a reactive manner.
- * This class orchestrates the interaction between repositories and strategies using reactive streams.
+ * Service responsible for managing jackpot contributions and rewards.
+ * This class orchestrates the interaction between repositories and strategies.
  *
  * This version of JackpotService explicitly saves JackpotContribution and JackpotReward
  * records to their respective repositories.
@@ -64,7 +64,7 @@ public class JackpotService {
 
 
     /**
-     * Handles the contribution of a bet to its matching jackpot pool reactively.
+     * Handles the contribution of a bet to its matching jackpot pool.
      * Uses the configured ContributionStrategy for the specific jackpot.
      * Concurrency is managed by the underlying `JackpotRepository.update` which
      * employs an optimistic locking approach for in-memory updates.
@@ -121,7 +121,7 @@ public class JackpotService {
     }
 
     /**
-     * Evaluates if a bet wins the jackpot reward reactively.
+     * Evaluates if a bet wins the jackpot reward.
      * Uses the configured RewardStrategy for the specific jackpot.
      * If a reward is won, the jackpot pool is reset.
      * Concurrency is managed by the underlying `JackpotRepository.update` via optimistic locking.

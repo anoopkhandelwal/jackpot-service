@@ -4,7 +4,7 @@ import com.sportygroup.jackpot.model.Bet;
 import reactor.core.publisher.Mono;
 
 /**
- * Interface for publishing bets to Kafka reactively.
+ * Interface for publishing bets to Kafka.
  * This interface abstracts the underlying messaging system, allowing for
  * different implementations (e.g., real Kafka, mock Kafka).
  * Methods now return Reactive Streams types (Mono).

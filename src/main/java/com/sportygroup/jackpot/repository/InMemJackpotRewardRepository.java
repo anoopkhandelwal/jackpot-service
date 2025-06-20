@@ -10,7 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 /**
- * In-memory implementation of JackpotRewardRepository using Reactive Streams.
+ * In-memory implementation of JackpotRewardRepository.
  * Uses a ConcurrentHashMap to store reward records for historical purposes.
  * Operations are wrapped in Mono.fromCallable to expose them as reactive streams,
  * acknowledging that the underlying HashMap operations are blocking.
@@ -22,7 +22,7 @@ public class InMemJackpotRewardRepository implements JackpotRewardRepository {
 
     /**
      * Saves a jackpot reward record to the in-memory map.
-     * Wrapped in Mono.fromCallable to represent a potentially blocking operation reactively.
+     * Wrapped in Mono.fromCallable to represent a potentially blocking operation.
      * @param reward The reward record to save.
      * @return A Mono emitting the saved reward record.
      */
@@ -38,7 +38,7 @@ public class InMemJackpotRewardRepository implements JackpotRewardRepository {
 
     /**
      * Finds all rewards for a given bet ID.
-     * Wrapped in Flux.fromIterable and Mono.fromCallable to represent a potentially blocking operation reactively.
+     * Wrapped in Flux.fromIterable and Mono.fromCallable to represent a potentially blocking operation.
      * @param betId The ID of the bet.
      * @return A Flux emitting matching reward records.
      */
@@ -52,7 +52,7 @@ public class InMemJackpotRewardRepository implements JackpotRewardRepository {
 
     /**
      * Finds a reward by its Bet ID and Jackpot ID.
-     * Wrapped in Mono.fromCallable to represent a potentially blocking operation reactively.
+     * Wrapped in Mono.fromCallable to represent a potentially blocking operation.
      * @param betId The ID of the bet.
      * @param jackpotId The ID of the jackpot.
      * @return A Mono emitting the reward if found, or empty otherwise.

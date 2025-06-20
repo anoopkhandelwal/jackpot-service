@@ -10,7 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 /**
- * In-memory implementation of JackpotContributionRepository using Reactive Streams.
+ * In-memory implementation of JackpotContributionRepository.
  * Uses a ConcurrentHashMap to store contribution records for historical purposes.
  * Operations are wrapped in Mono.fromCallable to expose them as reactive streams,
  * acknowledging that the underlying HashMap operations are blocking.
@@ -22,7 +22,6 @@ public class InMemJackpotContributionRepository implements JackpotContributionRe
 
     /**
      * Saves a jackpot contribution record to the in-memory map.
-     * Wrapped in Mono.fromCallable to represent a potentially blocking operation reactively.
      * @param contribution The contribution record to save.
      * @return A Mono emitting the saved contribution record.
      */
@@ -38,7 +37,6 @@ public class InMemJackpotContributionRepository implements JackpotContributionRe
 
     /**
      * Finds all contributions for a given bet ID.
-     * Wrapped in Flux.fromIterable and Mono.fromCallable to represent a potentially blocking operation reactively.
      * @param betId The ID of the bet.
      * @return A Flux emitting matching contribution records.
      */
@@ -52,7 +50,6 @@ public class InMemJackpotContributionRepository implements JackpotContributionRe
 
     /**
      * Finds a contribution by its Bet ID and Jackpot ID.
-     * Wrapped in Mono.fromCallable to represent a potentially blocking operation reactively.
      * @param betId The ID of the bet.
      * @param jackpotId The ID of the jackpot.
      * @return A Mono emitting the contribution if found, or empty otherwise.

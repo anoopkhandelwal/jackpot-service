@@ -12,7 +12,6 @@ import java.math.BigDecimal;
  *
  * The `calculateContribution` method here is synchronous as the calculation itself
  * is CPU-bound (mathematical operation) and typically very fast.
- * Wrapping this in a reactive type (Mono) would be unnecessary overhead for this simple calculation.
  */
 public interface ContributionStrategy {
     /**
